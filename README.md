@@ -23,11 +23,11 @@
 | item               | string     | null: false                    |
 | item_description   | text       | null: false                    |
 | category           | string     | null: false                    |
-| item-condition     | string     | null: false                    |
+| item_condition     | string     | null: false                    |
 | shipping_cost      | string     | null: false                    |
-| ship_from          | string     | null: false                    |
+| region             | string     | null: false                    |
 | number_of_days     | string     | null: false                    |
-| price              | string     | null: false                    |
+| price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
