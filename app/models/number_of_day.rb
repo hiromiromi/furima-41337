@@ -1,3 +1,4 @@
+=begin
 class Number_of_day < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
@@ -6,4 +7,4 @@ class Number_of_day < ActiveHash::Base
     { id:4, name: '4~7日で発送'}
   ]
 end
- 
+=end 

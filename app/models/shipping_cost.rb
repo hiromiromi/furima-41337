@@ -1,3 +1,4 @@
+=begin
 class Shipping_cost < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
@@ -5,4 +6,4 @@ class Shipping_cost < ActiveHash::Base
     { id: 3, name: '送料込み（出品者負担）' }
   ]
 end
- 
+=end

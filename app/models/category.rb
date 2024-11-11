@@ -1,3 +1,4 @@
+=begin
 class Category < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
@@ -13,3 +14,4 @@ class Category < ActiveHash::Base
     { id: 11, name: 'その他' }
   ]
 end
+=end

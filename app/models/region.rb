@@ -1,3 +1,4 @@
+=begin
 class Region < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' }, 
@@ -50,3 +51,4 @@ class Region < ActiveHash::Base
     { id: 48, name: '沖縄県' }
 ]
 end
+=end

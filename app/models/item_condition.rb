@@ -1,3 +1,4 @@
+=begin
 class Item_condition < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
@@ -9,3 +10,4 @@ class Item_condition < ActiveHash::Base
     { id: 7, name: '全体的に状態が悪い' }
 ]
 end
+=end
