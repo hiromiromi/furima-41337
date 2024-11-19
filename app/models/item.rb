@@ -11,17 +11,17 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :image
+    validates :item
     validates :item_description
     validates :user_id
-    validates :price
+    validates :price, numericality: {greater_than: 300,less_than: 9999999}
   end
 
-  with_options numericality: { other_than: 1 } do
+  with_options  numericality: { other_than: 1, message: "can't be blank"} do
     validates :category_id
     validates :item_condition_id
     validates :shipping_cost_id
     validates :region_id
     validates :number_of_day_id
   end
-
 end
