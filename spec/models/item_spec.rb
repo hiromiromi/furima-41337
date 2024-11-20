@@ -88,9 +88,9 @@ RSpec.describe Item, type: :model do
       end
 
       it 'userが紐づいていないと登録できない' do
-        @item.user_id = ''
+        @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User can't be blank")
+        expect(@item.errors.full_messages).to include("User must exist")
       end
 
     end

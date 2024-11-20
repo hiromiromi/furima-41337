@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   belongs_to :number_of_day
 
   with_options presence: true do
-    validates :user_id
     validates :image
     validates :item
     validates :item_description
