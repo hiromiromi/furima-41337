@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_item, only: [:index]
+  before_action :set_item, only: [:index, :create]
 
   def index
     @order_address = OrderAddress.new
@@ -7,8 +7,12 @@ class OrdersController < ApplicationController
 
   def create
     @order_address = OrderAddress.new(order_params)
-    @order_address.save
-    redirect_to root_path
+    if @order_address.valid?
+       @order_address.save
+       redirect_to root_path
+    else
+       render :index, status: :unprocessable_entity
+    end
   end
 
   private
