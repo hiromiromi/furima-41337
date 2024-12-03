@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
   has_one_attached :image
-  has_one :order, foreign_key: :item_id, dependent: :delete
+  has_one :order
 
   belongs_to :category
   belongs_to :item_condition
