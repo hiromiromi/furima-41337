@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :move_to_index, only: [:edit, :update, :destroy]
-  before_action :set_item, only: [:show ] 
-  
+  before_action :set_item, only: [:show]
+
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -24,9 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.order
+    return unless @item.order
+
     redirect_to root_path
-    end
   end
 
   def update
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to root_path
   end
-  
+
   private
 
   def item_params
@@ -50,11 +50,11 @@ class ItemsController < ApplicationController
                                  :region_id, :number_of_day_id, :price).merge(user_id: current_user.id)
   end
 
-  def  move_to_index
+  def move_to_index
     @item = Item.find(params[:id])
-    unless user_signed_in? && current_user.id == @item.user_id
-      redirect_to action: :index
-    end
+    return if user_signed_in? && current_user.id == @item.user_id
+
+    redirect_to action: :index
   end
 
   def set_item

@@ -13,7 +13,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address).to be_valid
       end
     end
-    
+
     context 'クレジットカード・配送先情報を登録できない場合' do
       it 'トークンが空では登録できない' do
         @order_address.token = nil
@@ -28,17 +28,17 @@ RSpec.describe OrderAddress, type: :model do
       it '郵便番号が「３桁-4桁」でなければ登録できない' do
         @order_address.postal_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code input correctly")
+        expect(@order_address.errors.full_messages).to include('Postal code input correctly')
       end
       it '郵便番号が半角数字でなければ登録できない' do
         @order_address.postal_code = '１２３-４５６７'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code input correctly")
+        expect(@order_address.errors.full_messages).to include('Postal code input correctly')
       end
       it '都道府県が「---」（id=1)では登録できない' do
         @order_address.region_id = '1'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Region Select")
+        expect(@order_address.errors.full_messages).to include('Region Select')
       end
       it '市区町村が空では登録できない' do
         @order_address.city = ''
@@ -58,12 +58,12 @@ RSpec.describe OrderAddress, type: :model do
       it '電話番号が半角数字のみでなければ登録できない' do
         @order_address.phone = '０９０１２３４５６７８'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone input only number")
+        expect(@order_address.errors.full_messages).to include('Phone input only number')
       end
       it '電話番号が10~11桁でなければ登録できない' do
         @order_address.phone = '090'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone is too short")
+        expect(@order_address.errors.full_messages).to include('Phone is too short')
       end
       it 'userが紐づいていないと登録できない' do
         @order_address.user_id = nil
