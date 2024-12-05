@@ -23,10 +23,8 @@
         <%= @item.shipping_cost.name %>
       </span>
     </div>
-
     <%# ログインしている%>
-    <% if user_signed_in? %>
-  
+    <% if user_signed_in? %> 
       <%# 出品者であり、商品は出品中である %>
       <% if current_user.id == @item.user_id && @item.order.nil? %>
         <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
